@@ -248,7 +248,7 @@ section h2 {
     gap: 2rem; /* Adjust gap */
     margin-top: 2rem; /* Add margin to separate from buttons */
     position: relative;
-    top: 6rem; /* Move downwards */
+    top: 4rem; /* Move downwards */
 }
 
 .social-links a {
