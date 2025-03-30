@@ -650,37 +650,135 @@ button:hover {
     background: #0056b3;
 }
 
+/* Container for the sky with clouds */
+.sky {
+    background: linear-gradient(to top, #87CEEB, #ffffff); /* Sky blue gradient */
+    position: relative;
+    height: 100vh; /* Full viewport height */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Clouds background effect */
+.sky::before, .cloud {
+    content: '';
+    position: absolute;
+    top: -10%;
+    width: 300px;
+    height: 100px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 20px 20px 60px rgba(0, 0, 0, 0.1);
+    animation: moveClouds 60s linear infinite; /* Animate clouds to move */
+}
+
+.sky::before {
+    left: 10%;
+    width: 400px;
+    height: 150px;
+    animation: moveClouds 80s linear infinite; /* Larger, slower cloud */
+}
+
+.cloud {
+    left: 60%;
+    width: 250px;
+    height: 80px;
+    animation: moveClouds 70s linear infinite; /* Medium cloud */
+}
+
+@keyframes moveClouds {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* Container for project cards */
 .projects-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 2rem;
     margin-top: 2rem;
+    z-index: 1;
 }
 
+/* Each project card with balloon design */
 .project-card {
     background: #fff;
     border: 1px solid #ddd;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 50%; /* Make it round like a balloon */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    width: 300px;
-    transition: transform 0.3s ease;
-    animation: slideInLeft 1s ease-in-out; /* Add left-to-right animation */
+    width: 250px; /* Width of the balloon */
+    height: 250px; /* Height of the balloon */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: floatBalloon 4s ease-in-out infinite; /* Floating balloon effect */
 }
 
+/* Floating effect */
+@keyframes floatBalloon {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px); /* Balloons float up */
+    }
+    100% {
+        transform: translateY(0); /* Balloons float back down */
+    }
+}
+
+/* Image styling */
 .project-card img {
     width: 100%;
     height: auto;
+    border-radius: 50%; /* Round the image to match the balloon design */
 }
 
+/* Title of the project (Heading) */
 .project-card h3 {
-    font-size: 1.5rem;
-    margin: 1rem 0;
-    text-align: center;
-    color: #007bff; /* Add color to project headings */
-    animation: fadeIn 2s ease-in-out; /* Add fade-in animation */
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    color: #007bff;
+    font-weight: bold;
+    animation: fadeIn 2s ease-in-out; /* Fade-in effect */
 }
+
+/* Fade-in animation for text */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Hover effect for project card (scaling effect) */
+.project-card:hover {
+    transform: scale(1.05) translateY(-10px); /* Slight scaling and upward movement */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .project-card {
+        width: 200px;
+        height: 200px;
+    }
+}
+
 
 .project-card p {
     padding: 0 1rem 1rem;
