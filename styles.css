@@ -242,24 +242,101 @@ section h2 {
     background: #0056b3;
 }
 
+/* Social Links Container */
 .social-links {
     display: flex;
     justify-content: center;
-    gap: 2rem; /* Adjust gap */
-    margin-top: 2rem; /* Add margin to separate from buttons */
-    position: relative;
-    top: 4rem; /* Move downwards */
+    gap: 2rem; /* Space between icons */
+    margin-top: 2rem; /* Margin to separate from buttons */
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Precisely center the container */
+    z-index: 1000; /* Ensure it's on top */
+    animation: rotateAnimation 15s linear infinite; /* Add rotating effect */
 }
 
+/* Social Link Styling */
 .social-links a {
-    color: #333;
-    font-size: 3rem; /* Adjust font size */
-    transition: color 0.3s ease;
+    color: #fff;
+    font-size: 3rem; /* Icon size */
+    transition: transform 0.3s ease, color 0.3s ease;
+    position: relative;
+    border-radius: 50%;
+    padding: 1rem;
+    background-color: #333; /* Default background color */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-social-links a:hover {
-    color: #007bff;
+/* Hover effect with color change and scaling */
+.social-links a:hover {
+    color: #fff;
+    transform: scale(1.2); /* Scale up the icon */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    animation: moveRandomly 2s ease infinite; /* Make it move randomly */
 }
+
+/* Random movement on hover */
+@keyframes moveRandomly {
+    0% {
+        transform: translateX(0) translateY(0);
+    }
+    25% {
+        transform: translateX(50px) translateY(-50px);
+    }
+    50% {
+        transform: translateX(-50px) translateY(50px);
+    }
+    75% {
+        transform: translateX(100px) translateY(-100px);
+    }
+    100% {
+        transform: translateX(0) translateY(0);
+    }
+}
+
+/* Colors for individual icons */
+.social-links a:nth-child(1) {
+    background-color: #FF6347; /* Tomato Red */
+}
+
+.social-links a:nth-child(2) {
+    background-color: #FFD700; /* Golden Yellow */
+}
+
+.social-links a:nth-child(3) {
+    background-color: #32CD32; /* Lime Green */
+}
+
+.social-links a:nth-child(4) {
+    background-color: #1E90FF; /* Dodger Blue */
+}
+
+.social-links a:nth-child(5) {
+    background-color: #FF69B4; /* Hot Pink */
+}
+
+/* Rotating Animation for the container */
+@keyframes rotateAnimation {
+    0% {
+        transform: rotate(0deg) translate(-50%, -50%);
+    }
+    100% {
+        transform: rotate(360deg) translate(-50%, -50%);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .social-links {
+        gap: 1.5rem;
+    }
+
+    .social-links a {
+        font-size: 2.5rem;
+    }
+}
+
 
 #contact form {
     max-width: 600px;
