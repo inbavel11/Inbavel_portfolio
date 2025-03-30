@@ -253,7 +253,7 @@ section h2 {
     left: 50%; /* Center horizontally */
     transform: translate(-50%, -50%); /* Precisely center the container */
     z-index: 1000; /* Ensure it's on top */
-    animation: rotateAnimation 15s linear infinite; /* Add rotating effect */
+    animation: rotateAnimation 15s linear infinite; /* Add rotating effect to the container */
 }
 
 /* Social Link Styling */
@@ -268,30 +268,64 @@ section h2 {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Hover effect with color change and scaling */
-.social-links a:hover {
-    color: #fff;
-    transform: scale(1.2); /* Scale up the icon */
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
-    animation: moveRandomly 2s ease infinite; /* Make it move randomly */
+/* Hover effects with distinct transitions for each icon */
+.social-links a:nth-child(1):hover {
+    animation: rotateIcon 1s ease-out forwards; /* Rotate on hover */
 }
 
-/* Random movement on hover */
-@keyframes moveRandomly {
+.social-links a:nth-child(2):hover {
+    animation: bounceEffect 1s ease-out forwards; /* Bounce on hover */
+}
+
+.social-links a:nth-child(3):hover {
+    animation: waveEffect 1.5s ease-out forwards; /* Wave effect on hover */
+}
+
+/* Rotate animation for the first icon */
+@keyframes rotateIcon {
     0% {
-        transform: translateX(0) translateY(0);
-    }
-    25% {
-        transform: translateX(50px) translateY(-50px);
-    }
-    50% {
-        transform: translateX(-50px) translateY(50px);
-    }
-    75% {
-        transform: translateX(100px) translateY(-100px);
+        transform: rotate(0deg);
     }
     100% {
-        transform: translateX(0) translateY(0);
+        transform: rotate(360deg);
+    }
+}
+
+/* Bounce effect for the second icon */
+@keyframes bounceEffect {
+    0% {
+        transform: translateY(0);
+    }
+    30% {
+        transform: translateY(-10px); /* Bounce upwards */
+    }
+    50% {
+        transform: translateY(0); /* Return to original position */
+    }
+    70% {
+        transform: translateY(-5px); /* Small bounce upwards */
+    }
+    100% {
+        transform: translateY(0); /* Return to original position */
+    }
+}
+
+/* Wave effect for the third icon */
+@keyframes waveEffect {
+    0% {
+        transform: translateY(0);
+    }
+    25% {
+        transform: translateY(-10px); /* Move up */
+    }
+    50% {
+        transform: translateY(0); /* Return */
+    }
+    75% {
+        transform: translateY(10px); /* Move down */
+    }
+    100% {
+        transform: translateY(0); /* Return */
     }
 }
 
