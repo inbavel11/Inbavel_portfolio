@@ -86,7 +86,7 @@ section h2 {
     align-items: center; /* Align items horizontally */
     justify-content: space-between; /* Space between text and image */
     text-align: left; /* Align text to the left */
-    height: 500px; /* Full viewport height */
+    height: 600px; /* Full viewport height */
 }
 
 #home .text-content {
