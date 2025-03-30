@@ -724,6 +724,24 @@ button:hover {
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     animation: floatBalloon 4s ease-in-out infinite; /* Floating balloon effect */
+    position: relative; /* Make sure thread appears below */
+}
+
+/* Balloon colors (random or set specific colors) */
+.project-card:nth-child(1) {
+    background: #FF6347; /* Tomato Red */
+}
+.project-card:nth-child(2) {
+    background: #FFD700; /* Golden Yellow */
+}
+.project-card:nth-child(3) {
+    background: #32CD32; /* Lime Green */
+}
+.project-card:nth-child(4) {
+    background: #1E90FF; /* Dodger Blue */
+}
+.project-card:nth-child(5) {
+    background: #FF69B4; /* Hot Pink */
 }
 
 /* Floating effect */
@@ -750,7 +768,7 @@ button:hover {
 .project-card h3 {
     font-size: 1.2rem;
     margin-top: 1rem;
-    color: #007bff;
+    color: #ffffff;
     font-weight: bold;
     animation: fadeIn 2s ease-in-out; /* Fade-in effect */
 }
@@ -771,6 +789,16 @@ button:hover {
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
 }
 
+/* Balloon thread styling */
+.balloon-thread {
+    position: absolute;
+    bottom: -50px; /* Position it below the balloon */
+    width: 4px;
+    height: 100px; /* Length of the thread */
+    background: #333; /* Dark color for the thread */
+    border-radius: 2px;
+}
+
 /* Responsive design for smaller screens */
 @media (max-width: 768px) {
     .project-card {
@@ -779,17 +807,6 @@ button:hover {
     }
 }
 
-
-.project-card p {
-    padding: 0 1rem 1rem;
-    text-align: center;
-    color: #333; /* Add color to project descriptions */
-    animation: fadeIn 2s ease-in-out; /* Add fade-in animation */
-}
-
-.project-card:hover {
-    transform: scale(1.05);
-}
 
 @keyframes slideIn {
     from {
