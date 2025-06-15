@@ -6,6 +6,26 @@
     <title>Inbavel S Portfolio</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        @keyframes colorChange {
+            0% { color: #ff0000; }
+            25% { color: #00ff00; }
+            50% { color: #0000ff; }
+            75% { color: #ffff00; }
+            100% { color: #ff0000; }
+        }
+        #projects h2, #contact h2 {
+            animation: colorChange 5s infinite;
+        }
+        @keyframes moveProjects {
+            0% { transform: translateX(0); }
+            50% { transform: translateX(-10px); }
+            100% { transform: translateX(0); }
+        }
+        .project-card {
+            animation: moveProjects 3s infinite;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -21,7 +41,6 @@
             </ul>
         </nav>
     </header>
-
     <section id="home">
         <div class="content">
             <div class="text-content">
@@ -40,34 +59,70 @@
             </div>
         </div>
     </section>
-
-    <section id="about">
+    <section id="about" onmouseenter="fadeInAbout()">
         <div class="old-paper">
             <h2>About Me 🌟</h2>
-            <p>As an AI and Machine Learning student at Rajalakshmi Engineering College, I am deeply passionate about developing innovative solutions in ML model building, computer vision, NLP-based applications, and smart automation. With expertise in web development (MySQL, JavaScript, React, MongoDB), Android app development, and IoT using NodeMCU, I thrive on solving complex challenges. I see every struggle as an opportunity to grow and believe failure holds greater value than success, as it identifies areas for improvement while success only brings pride. Committed to continuous learning and innovation, I dedicate myself to delivering impactful and high-quality solutions.🚀</p>
+            <p onclick="animateParagraph()">As a student at Rajalakshmi Engineering College, I am passionate about computer science-based developments, particularly in the field of Artificial Intelligence and Machine Learning (AIML). My B.Tech in AIML is enhancing my skills and preparing me for a promising future. While I hadn't initially anticipated studying engineering, I now embrace the unpredictability of the future with optimism and belief in the opportunities it may bring. 🚀</p>
             <img src="feather.png" alt="Feather Pen" class="feather-pen">
         </div>
     </section>
-
     <section id="skills">
         <h2 class="skills-heading">Skills</h2>
         <div class="skills-container">
-            <div class="skill"><i class="fab fa-html5" style="color: #e34c26;"></i><p>HTML</p></div>
-            <div class="skill"><i class="fab fa-css3-alt" style="color: #1572b6;"></i><p>CSS</p></div>
-            <div class="skill"><i class="fab fa-js" style="color: #f7df1e;"></i><p>JavaScript</p></div>
-            <div class="skill"><i class="fab fa-react" style="color: #61dafb;"></i><p>React</p></div>
-            <div class="skill"><i class="fas fa-microchip" style="color: #ff6f00;"></i><p>IoT</p></div>
-            <div class="skill"><i class="fas fa-brain" style="color: #6a1b9a;"></i><p>Computer Vision</p></div>
-            <div class="skill"><i class="fas fa-brain" style="color: #ff4081;"></i><p>Deep Learning</p></div>
-            <div class="skill"><i class="fab fa-android" style="color: #3ddc84;"></i><p>Android Development</p></div>
-            <div class="skill"><i class="fab fa-java" style="color: #007396;"></i><p>Java</p></div>
-            <div class="skill"><i class="fas fa-database" style="color: #4479a1;"></i><p>MySQL</p></div>
-            <div class="skill"><i class="fas fa-language" style="color: #ff5722;"></i><p>NLP</p></div>
-            <div class="skill"><i class="fas fa-database" style="color: #47a248;"></i><p>MongoDB</p></div>
-            <div class="skill"><i class="fas fa-chart-bar" style="color: #e97627;"></i><p>Tableau</p></div>
+            <div class="skill">
+                <i class="fab fa-html5" style="color: #e34c26;"></i>
+                <p>HTML</p>
+            </div>
+            <div class="skill">
+                <i class="fab fa-css3-alt" style="color: #1572b6;"></i>
+                <p>CSS</p>
+            </div>
+            <div class="skill">
+                <i class="fab fa-js" style="color: #f7df1e;"></i>
+                <p>JavaScript</p>
+            </div>
+            <div class="skill">
+                <i class="fab fa-react" style="color: #61dafb;"></i>
+                <p>React</p>
+            </div>
+            <div class="skill">
+                <i class="fas fa-microchip" style="color: #ff6f00;"></i>
+                <p>IoT</p>
+            </div>
+            <div class="skill">
+                <i class="fas fa-brain" style="color: #6a1b9a;"></i>
+                <p>Computer Vision</p>
+            </div>
+            <div class="skill">
+                <i class="fas fa-brain" style="color: #ff4081;"></i>
+                <p>Deep Learning</p>
+            </div>
+            <div class="skill">
+                <i class="fab fa-android" style="color: #3ddc84;"></i>
+                <p>Android Development</p>
+            </div>
+            <div class="skill">
+                <i class="fab fa-java" style="color: #007396;"></i>
+                <p>Java</p>
+            </div>
+            <div class="skill">
+                <i class="fas fa-database" style="color: #4479a1;"></i>
+                <p>MySQL</p>
+            </div>
+            <div class="skill">
+                <i class="fas fa-language" style="color: #ff5722;"></i>
+                <p>NLP</p>
+            </div>
+            <div class="skill">
+                <i class="fas fa-database" style="color: #47a248;"></i>
+                <p>MongoDB</p>
+            </div>
+            <div class="skill">
+                <i class="fas fa-chart-bar" style="color: #e97627;"></i>
+                <p>Tableau</p>
+            </div>
         </div>
     </section>
-
     <section id="experience">
         <h2 class="experience-heading">Experience</h2>
         <div class="timeline">
@@ -133,41 +188,38 @@
             </div>
         </div>
     </section>
-
     <section id="projects">
         <h2>Projects</h2>
         <div class="projects-container">
             <div class="project-card">
                 <img src="pro1.jpg" alt="Project 1">
                 <h3>The Disaster Damage Assessment Mobile App</h3>
-                <p>A mobile application designed to assess damage from disasters using AI algorithms.</p>
+                <p>The Disaster Damage Assessment Mobile App uses advanced AI and machine learning to evaluate disaster damage in real-time. Users can capture and upload images, which are processed by TensorFlow Lite models for precise segmentation. The app integrates real-time and historical weather data, enhancing context and accuracy. It features a user-friendly interface and employs robust security measures. With optional cloud integration, the app ensures scalability and can handle large-scale disaster data efficiently. Initial tests showed over 90% accuracy in identifying damage, with a 30% improvement in assessment speed compared to traditional methods. This app significantly enhances disaster response by providing rapid and accurate damage assessments</p>
             </div>
             <div class="project-card">
                 <img src="pro2.jpg" alt="Project 2">
-                <h3>Vehicle Count in Real Time</h3>
-                <p>An AI-based system for real-time vehicle counting using computer vision techniques.</p>
+                <h3>vehicle count in Real Time</h3>
+                <p>A real-time vehicle counting system using YOLOv8 combines advanced object detection and deep learning techniques to accurately monitor and count vehicles in traffic footage. YOLOv8 (You Only Look Once, version 8) is known for its high speed and precision in detecting objects. It processes live video streams from traffic cameras, identifying and classifying different types of vehicles such as cars, trucks, and motorcycles in real time. The system uses deep learning algorithms to track vehicle movements across frames, ensuring accurate counts even in dense traffic conditions. This technology provides essential data for traffic management, urban planning, and safety enhancement, enabling authorities to optimize traffic flow, reduce congestion, and improve road safety with real-time insights. The integration of YOLOv8 ensures efficient and reliable vehicle detection, making it an ideal solution for modern smart city infrastructures.</p>
             </div>
             <div class="project-card">
                 <img src="pro3.jpg" alt="Project 3">
-                <h3>On Duty Management System</h3>
-                                <p>A management system for tracking on-duty personnel using machine learning algorithms.</p>
+                <h3>On duty Management System</h3>
+                <p>The On-Duty Management System is a web-based application developed using PHP and vanilla CSS, designed to streamline the process of managing on-duty requests in educational institutions. Students can create and manage their profiles, submit on-duty requests specifying the date, time, and reason, while staff members can review, accept, or deny these requests. The system maintains a record of all requests and decisions, ensuring efficient and transparent handling of on-duty requests.</p>
             </div>
             <!-- Add more project cards as needed -->
         </div>
     </section>
-
     <section id="contact">
         <h2>Contact</h2>
         <form>
-            <input type="text" name="name" placeholder="Full Name" required>
-            <input type="email" name="email" placeholder="Email" required>
-            <input type="text" name="phone" placeholder="Phone Number" required>
-            <input type="text" name="subject" placeholder="Subject" required>
-            <textarea name="message" placeholder="Your Message" required></textarea>
+            <input type="text" name="name" placeholder="Full Name">
+            <input type="email" name="email" placeholder="Email">
+            <input type="text" name="phone" placeholder="Phone Number">
+            <input type="text" name="subject" placeholder="Subject">
+            <textarea name="message" placeholder="Your Message"></textarea>
             <button type="submit">Send Message</button>
         </form>
     </section>
-
     <script src="scripts.js"></script>
 </body>
 </html>
